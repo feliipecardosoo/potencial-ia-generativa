@@ -348,4 +348,4 @@ response = client.chat.completions.create(
   presence_penalty=0
 )
 
-print(response)
+print(response.choices[0].message.content)
