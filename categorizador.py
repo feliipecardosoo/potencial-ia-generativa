@@ -2,7 +2,6 @@ from openai import OpenAI
 client = OpenAI()
 modelo="gpt-4o-mini"
 
-prompt_usuario = input("Apresente o nome de um produto: ")
 
 
 def categoriza_produto(nome_produto, lista_categorias_possiveis):
@@ -52,4 +51,5 @@ categorias_validas = input("Informe as categorias válidas, separando por vírgu
 
 while True:
   nome_produto = input("Digite o nome do produto: ")
-  categoriza_produto(nome_produto, categorias_validas)
+  texto_resposta = categoriza_produto(nome_produto, categorias_validas)
+  print(texto_resposta)
