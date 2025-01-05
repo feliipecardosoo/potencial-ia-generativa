@@ -1,0 +1,1 @@
+# potencial-ia-generativa
