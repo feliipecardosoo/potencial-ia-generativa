@@ -1,20 +1,39 @@
 from openai import OpenAI
 client = OpenAI()
+modelo="gpt-4o-mini"
+
+prompt_sistema = """
+    Você é um categorizador de produtos.
+    Você deve assumir as categorias presentes na lista abaixo.
+
+    # Lista de Categorias Válidas
+    - Moda Sustentável
+    - Produtos para o Lar 
+    - Beleza Natural
+    - Eletrônicos Verdes
+
+    # Formato da Saída
+    Produto: Nome do Produto
+    Categoria: apresente a categoria do produto
+
+    # Exemplo de Saída 
+    Produto: Escova elétrica com recarga solar
+    Categoria: Eletrônicos Verdes
+
+"""
+
+prompt_usuario = input("Apresente o nome de um produto: ")
 
 response = client.chat.completions.create(
-  model="gpt-4o-mini",
+  model=modelo,
   messages=[
     {
       "role": "system",
-      "content": """
-        Classifique o produto abaixo em uma das categorias: Higiene Pessoal, Moda ou casa e de uma descrição da categoria.
-       """
+      "content": prompt_sistema
     },
     {
         "role": "user",
-        "content": """
-        Escova de dentes de bambu
-        """
+        "content": prompt_usuario
     }
   ],
   response_format={
@@ -26,3 +45,5 @@ response = client.chat.completions.create(
   frequency_penalty=0,
   presence_penalty=0
 )
+
+print(response.choices[0].message.content)
