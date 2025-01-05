@@ -10,7 +10,7 @@ prompt_sistema = """
     - Moda Sustentável
     - Produtos para o Lar 
     - Beleza Natural
-    - Eletrônicos Verdes
+    - Eletrônicos Verdes 
 
     # Formato da Saída
     Produto: Nome do Produto

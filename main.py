@@ -60,6 +60,7 @@ while prompt_usuario != "Sair":
         presence_penalty=0,
         n=1
     )
+    
     # Verifica se a resposta já termina com uma quebra de linha
     response_text = response.choices[0].message.content
     if not response_text.endswith("\n"):
